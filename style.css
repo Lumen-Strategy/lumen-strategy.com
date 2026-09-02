@@ -1,0 +1,432 @@
+/* ==========================================================================
+   Lumen Strategy, Ltd. — site styles
+   Edit colors and fonts here; every page uses this one file.
+   ========================================================================== */
+
+:root {
+  /* Lumen brand */
+  --blue:      #356699;   /* primary — links, buttons, structure */
+  --blue-deep: #24486d;   /* hover states on solid blue */
+  --gold:      #cbbb67;   /* accent — decorative only, never text */
+  --gold-deep: #7a6b22;   /* the readable gold, for text and links */
+
+  --ink:       #131a22;
+  --ink-soft:  #4d5661;
+  --paper:     #eceff2;
+  --white:     #ffffff;
+  --rule:      #ccd3da;
+
+  --display: "Archivo", system-ui, sans-serif;
+  --body:    "Source Serif 4", Georgia, serif;
+  --mono:    "IBM Plex Mono", ui-monospace, monospace;
+
+  --measure: 34rem;
+  --gutter:  clamp(1.25rem, 5vw, 3.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-synthesis-weight: none;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--blue); text-underline-offset: 0.2em; }
+a:hover { color: var(--gold-deep); }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: var(--gutter);
+  top: 0.75rem;
+  z-index: 10;
+  background: var(--white);
+  padding: 0.5rem 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+/* --- Masthead ------------------------------------------------------------ */
+
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1.5rem;
+}
+
+.wordmark {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.wordmark:hover { color: var(--ink); }
+
+.wordmark::before {
+  content: "";
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--gold);
+  flex: none;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding-block: 0.15rem;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--ink); border-bottom-color: var(--rule); }
+.nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--gold); }
+
+/* --- Type ---------------------------------------------------------------- */
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 1.25rem;
+}
+
+.headline {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.95rem, 5.4vw, 3.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.021em;
+  margin: 0;
+  max-width: 22ch;
+}
+
+.headline .mark {
+  background-image: linear-gradient(var(--gold), var(--gold));
+  background-repeat: no-repeat;
+  background-position: 0 92%;
+  background-size: 100% 0.2em;
+}
+
+.deck {
+  font-size: clamp(1.1rem, 2.1vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+  margin: 1.75rem 0 0;
+}
+
+h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.35rem, 2.7vw, 1.75rem);
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  margin: 0 0 1rem;
+}
+
+h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.08rem;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.5rem;
+}
+
+p { max-width: var(--measure); }
+
+.prose > * + * { margin-top: 1.15rem; }
+.prose > h2 { margin-top: 2.75rem; }
+
+/* --- Sections ------------------------------------------------------------ */
+
+.hero { padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(2.5rem, 6vw, 4rem); }
+
+.band { padding-block: clamp(2.5rem, 6vw, 4rem); }
+.band--ruled { border-top: 1px solid var(--rule); }
+.band--white { background: var(--white); border-block: 1px solid var(--rule); }
+
+/* --- Pull statement ------------------------------------------------------ */
+
+.pull {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 3vw, 1.85rem);
+  line-height: 1.28;
+  letter-spacing: -0.014em;
+  max-width: 26ch;
+  margin: 0;
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--gold);
+}
+
+.pull cite {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 1.25rem;
+}
+
+/* --- Service list -------------------------------------------------------- */
+
+.services {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+@media (min-width: 46rem) {
+  .services { grid-template-columns: repeat(3, 1fr); }
+}
+
+.services li {
+  background: var(--white);
+  padding: 1.5rem 1.4rem;
+}
+
+.services p {
+  margin: 0;
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+}
+
+/* --- Entry list (engagements, writing) ----------------------------------- */
+
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entries > li {
+  padding-block: 1.6rem;
+  border-top: 1px solid var(--rule);
+}
+.entries > li:last-child { border-bottom: 1px solid var(--rule); }
+
+.entry__meta {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.45rem;
+}
+
+.entry__title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin: 0 0 0.45rem;
+}
+.entry__title a { text-decoration: none; }
+.entry__title a:hover { text-decoration: underline; }
+
+.entries p { margin: 0; color: var(--ink-soft); font-size: 0.99rem; }
+.entries p + p { margin-top: 0.6rem; }
+
+.entry__figure { margin: 1.1rem 0 0; }
+.entry__figure img { border: 1px solid var(--rule); }
+.entry__figure figcaption {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+}
+
+/* --- Credential list ----------------------------------------------------- */
+
+.creds {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 0.83rem;
+  line-height: 1.5;
+  max-width: var(--measure);
+}
+
+.creds li {
+  display: flex;
+  gap: 1rem;
+  padding-block: 0.55rem;
+  border-top: 1px dotted var(--rule);
+}
+
+.creds b {
+  flex: none;
+  width: 5.5rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* --- Buttons ------------------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--white);
+  background: var(--blue);
+  padding: 0.8rem 1.4rem;
+  border: 1px solid var(--blue);
+}
+.btn:hover { background: var(--blue-deep); border-color: var(--blue-deep); color: var(--white); }
+
+.btn--quiet {
+  background: transparent;
+  color: var(--blue);
+}
+.btn--quiet:hover { background: var(--blue); color: var(--white); }
+
+/* --- Title block (footer) ------------------------------------------------
+   Modeled on the title block in the corner of a plan sheet.
+   -------------------------------------------------------------------------- */
+
+.titleblock {
+  margin-top: clamp(3rem, 8vw, 5rem);
+  border-top: 3px solid var(--gold);
+  background: var(--white);
+}
+
+.titleblock__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border-inline: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-block: 2.5rem;
+}
+
+@media (min-width: 34rem) {
+  .titleblock__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 58rem) {
+  .titleblock__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.cell {
+  background: var(--white);
+  padding: 0.9rem 1rem 1rem;
+  min-height: 4.5rem;
+}
+
+.cell dt {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.35rem;
+}
+
+.cell dd {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.cell dd a { text-decoration: none; }
+.cell dd a:hover { text-decoration: underline; }
+
+.colophon {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  padding-bottom: 2.5rem;
+  margin: 0;
+  max-width: none;
+}
+
+/* --- Motion -------------------------------------------------------------- */
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.rise:nth-child(2) { animation-delay: 0.08s; }
+.rise:nth-child(3) { animation-delay: 0.16s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.7rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; }
+  * { transition: none !important; }
+}
+
+/* --- Logo in the masthead ------------------------------------------------
+   The mark sits beside the wordmark text. The alt attribute on the image is
+   intentionally empty because the text next to it already says the name.
+   -------------------------------------------------------------------------- */
+
+.wordmark img {
+  height: 2.1rem;
+  width: auto;
+  flex: none;
+}
+
+.wordmark::before { display: none; }
